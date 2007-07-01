@@ -28,6 +28,7 @@ applications in Java.  It is part of Java-GNOME.
 Summary:        Development files for %{name}
 Group:          Development/Java
 Requires:       %{name} = %{version}-%{release}
+Conflicts:      cairo-java < 1.0.8-2
 
 %description    devel
 Development files for %{name}.
