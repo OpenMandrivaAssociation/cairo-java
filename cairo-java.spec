@@ -1,10 +1,10 @@
 Name:           cairo-java
 Version:        1.0.8
-Release:        %mkrel 1
+Release:        %mkrel 2
 Epoch:          0
 Summary:        Java bindings for the Cairo library
 License:        LGPL
-Group:          Development/Java
+Group:          System/Libraries
 URL:            http://java-gnome.sourceforge.net/
 Source0:        http://fr2.rpmfind.net/linux/gnome.org/sources/cairo-java/1.0/cairo-java-%{version}.tar.bz2
 Source1:        cairo-java-1.0.8.changes
@@ -12,28 +12,25 @@ Source2:        cairo-java-1.0.8.md5sum
 Source3:        cairo-java-1.0.8.news
 Source4:        java-gnome-macros.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-root
-Requires:       gtk2 >= 0:2.10.6
-Requires:       cairo >= 0:1.2.4
-Requires:       libcairo-devel >= 0:1.2.4
-Requires:       glib-java >= 0:0.4.0
-BuildRequires:  glib-java >= 0:0.4.0
-BuildRequires:  gtk2-devel >= 0:2.10.6, gcc-java >= 0:4.1.1
+BuildRequires:  glib-java-devel >= 0:0.4.0
+BuildRequires:  gtk2-devel >= 0:2.10.6
 BuildRequires:  docbook-utils
 BuildRequires:  jpackage-utils
 BuildRequires:  java-devel >= 0:1.4.2
+BuildRequires:  java-gcj-compat-devel
+
 
 %description
 Cairo-java is a language binding that allows developers to write Cairo
 applications in Java.  It is part of Java-GNOME.
 
 %package        devel
-Summary:        Compressed Java source files for %{name}
+Summary:        Development files for %{name}
 Group:          Development/Java
 Requires:       %{name} = %{version}-%{release}
 
 %description    devel
-Compressed Java source for %{name}. This is useful if you are developing
-applications with IDEs like Eclipse.
+Development files for %{name}.
 
 %prep
 %setup -q
@@ -49,6 +46,8 @@ export JAVA=%{java}
 export JAVAC=%{javac}
 export JAR=%{jar}
 export JAVADOC=%{javadoc}
+export GCJ=%{gcj}
+export CPPFLAGS="-I%{java_home}/include -I%{java_home}/include/linux"
 %{configure2_5x} --with-jardir=%{_javadir}
 %{make}
 
@@ -83,14 +82,18 @@ popd
 
 %files
 %defattr(-,root,root)
-%doc doc/api AUTHORS ChangeLog COPYING INSTALL README NEWS 
-%{_libdir}/*so* 
-%{_libdir}/*la
-%{_libdir}/pkgconfig/*
+%doc AUTHORS ChangeLog COPYING INSTALL README NEWS 
+%{_libdir}/libcairojava-*.so
+%{_libdir}/libcairojni-*.so
 %{_javadir}/*.jar
 
 %files devel
 %defattr(-,root,root)
+%doc doc/api
 %{_javadir}/*.zip
+%{_libdir}/libcairojava.so
+%{_libdir}/libcairojni.so
+%{_libdir}/*la
+%{_libdir}/pkgconfig/*
 
 
