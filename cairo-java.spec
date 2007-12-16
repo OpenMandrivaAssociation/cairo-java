@@ -1,6 +1,6 @@
 Name:           cairo-java
 Version:        1.0.8
-Release:        %mkrel 2
+Release:        %mkrel 3
 Epoch:          0
 Summary:        Java bindings for the Cairo library
 License:        LGPL
@@ -15,7 +15,7 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-root
 BuildRequires:  glib-java-devel >= 0:0.4.0
 BuildRequires:  gtk2-devel >= 0:2.10.6
 BuildRequires:  docbook-utils
-BuildRequires:  jpackage-utils
+BuildRequires:  java-rpmbuild
 BuildRequires:  java-devel >= 0:1.4.2
 BuildRequires:  java-gcj-compat-devel
 
