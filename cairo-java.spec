@@ -1,6 +1,8 @@
+%define _disable_ld_no_undefined 1
+
 Name:           cairo-java
 Version:        1.0.8
-Release:        %mkrel 7
+Release:        %mkrel 7.0.1
 Epoch:          0
 Summary:        Java bindings for the Cairo library
 License:        LGPLv2
@@ -47,6 +49,7 @@ export JAVA=%{java}
 export JAVAC=%{javac}
 export JAR=%{jar}
 export JAVADOC=%{javadoc}
+export JAVAH=%{_jvmdir}/java-rpmbuild/bin/javah
 export GCJ=%{gcj}
 export CPPFLAGS="-I%{java_home}/include -I%{java_home}/include/linux"
 %{configure2_5x} --with-jardir=%{_javadir}
