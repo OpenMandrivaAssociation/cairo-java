@@ -52,7 +52,7 @@ export CPPFLAGS="-I%{java_home}/include -I%{java_home}/include/linux"
 # libtool does not use pic_flag when compiling, so we have to force it. 
 export GCJFLAGS="-O2 -fPIC" 
 %{configure2_5x} --with-jardir=%{_javadir}
-%{make}
+make
 
 # pack up the java source
 jarversion=$(echo -n %{version} | cut -d . -f -2)
