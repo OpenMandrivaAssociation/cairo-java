@@ -2,7 +2,7 @@
 
 Name:           cairo-java
 Version:        1.0.8
-Release:        %mkrel 7.0.2
+Release:        %mkrel 7.0.3
 Epoch:          0
 Summary:        Java bindings for the Cairo library
 License:        LGPLv2
