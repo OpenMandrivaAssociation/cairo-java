@@ -38,10 +38,6 @@ Development files for %{name}.
 %prep
 %setup -q
 %setup -q -T -D -a 4
-%{__aclocal} -I macros --force
-%{__autoconf} --force
-%{__automake} --copy --force-missing
-%{__libtoolize} --automake --copy --force
 
 %build 
 export CLASSPATH=
@@ -52,6 +48,9 @@ export JAVADOC=%{javadoc}
 export JAVAH=%{_jvmdir}/java-rpmbuild/bin/javah
 export GCJ=%{gcj}
 export CPPFLAGS="-I%{java_home}/include -I%{java_home}/include/linux"
+# workaround:
+# libtool does not use pic_flag when compiling, so we have to force it. 
+export GCJFLAGS="-O2 -fPIC" 
 %{configure2_5x} --with-jardir=%{_javadir}
 %{make}
 
