@@ -89,14 +89,19 @@ popd
 
 %files
 %defattr(-,root,root)
-%doc AUTHORS ChangeLog COPYING INSTALL README NEWS 
+%doc %{_docdir}/%{name}-%{version}/AUTHORS 
+%doc %{_docdir}/%{name}-%{version}/COPYING 
+%doc %{_docdir}/%{name}-%{version}/INSTALL
+%doc %{_docdir}/%{name}-%{version}/README
+%doc %{_docdir}/%{name}-%{version}/NEWS 
 %{_libdir}/libcairojava-*.so
 %{_libdir}/libcairojni-*.so
 %{_javadir}/*.jar
 
 %files devel
 %defattr(-,root,root)
-%doc doc/api
+%doc %{_docdir}/%{name}-%{version}/api
+#%doc doc/api
 %{_javadir}/*.zip
 %{_libdir}/libcairojava.so
 %{_libdir}/libcairojni.so
