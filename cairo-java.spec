@@ -7,7 +7,7 @@ Epoch:          0
 Summary:        Java bindings for the Cairo library
 License:        LGPLv2
 Group:          System/Libraries
-URL:            http://java-gnome.sourceforge.net/
+URL:            https://java-gnome.sourceforge.net/
 Source0:        http://fr2.rpmfind.net/linux/gnome.org/sources/cairo-java/1.0/cairo-java-%{version}.tar.bz2
 Source1:        cairo-java-1.0.8.changes
 Source2:        cairo-java-1.0.8.md5sum
