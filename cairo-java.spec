@@ -14,6 +14,7 @@ Source2:        cairo-java-1.0.8.md5sum
 Source3:        cairo-java-1.0.8.news
 Source4:        java-gnome-macros.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-root
+BuildRequires:	make
 BuildRequires:  cairo-devel
 BuildRequires:  glib-java-devel
 BuildRequires:  docbook-utils
